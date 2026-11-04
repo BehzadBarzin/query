@@ -3,6 +3,9 @@
 Devtools for [`@tanstack/marko-query`](../marko-query), built on
 `@tanstack/query-devtools`.
 
+This package is experimental, same as `@tanstack/marko-query`. Pin an exact
+version if you use it in production while the API is early.
+
 ## Install
 
 ```sh

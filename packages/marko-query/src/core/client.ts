@@ -152,8 +152,8 @@ function createBrowserClient(): QueryClient {
 /**
  * Sets the factory used for every `QueryClient` the adapter creates: one per
  * request on the server and one per page in the browser. This is the Marko
- * counterpart of `QueryClientProvider`; call it from a module that runs in
- * both environments, before the first render.
+ * counterpart of `QueryClientProvider`; call it before the first client is
+ * created (typically from a module that runs in both environments).
  * @param factory - Makes a new `QueryClient`.
  */
 export function setQueryClientFactory(factory: () => QueryClient): void {

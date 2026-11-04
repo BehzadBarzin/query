@@ -5,8 +5,10 @@
 // A route handler or middleware that prefetches runs before the layout
 // renders, and the client it gets must already be made by the factory. So on
 // top of what the tag does while rendering, this transform registers the
-// factory when the template's module loads on the server, which is before any
-// request. The browser needs no such step: the tag registers from its mount.
+// factory when the template's module is evaluated on the server — before any
+// handler, middleware or render of the first request, because loading a route
+// loads the layout with it. The browser needs no such step: the tag registers
+// from its mount.
 
 const TAG = '<query-client-factory>'
 

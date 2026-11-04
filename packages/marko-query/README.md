@@ -4,6 +4,9 @@ Marko 6 adapter for `@tanstack/query-core`. It re-exports core and adds tags
 for queries, mutations and hydration. It creates a query client for each server
 request and for the page in the browser.
 
+This package is currently experimental. Pin an exact version if you use it in
+production while the API is early.
+
 ## Install
 
 ```sh
@@ -93,8 +96,10 @@ import { createQueryClient } from "../lib/query-client.ts";
 <query-client-factory factory=createQueryClient/>
 ```
 
-`factory` must be a function that you import. It is registered when the layout
-loads on the server, so route handlers that prefetch already use it. The tag
+`factory` must be a function that you import. It is registered when the layout's
+module is evaluated on the server — before any handler, middleware, or render
+of the first request, because loading a route loads the layout with it — so
+route handlers that prefetch already use it. The tag
 registers it in the browser before any query tag runs. If the tag renders after
 a query tag, the browser throws an error. To use a client that you created
 yourself, call `setQueryClient(client, $global)`.
@@ -118,5 +123,6 @@ See [`@tanstack/marko-query-devtools`](../marko-query-devtools).
 
 ## Documentation
 
-Visit [tanstack.com/query](https://tanstack.com/query) for docs, guides and the
-API of core.
+Visit
+[the Marko Query docs](https://tanstack.com/query/latest/docs/framework/marko/overview)
+for guides. Core APIs are documented with the other adapters.
